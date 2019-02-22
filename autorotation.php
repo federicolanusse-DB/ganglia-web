@@ -29,7 +29,7 @@ if ( ! isset($_REQUEST['view_name']) ) {
 
   $view_found = 0;
   
-  $user['view_name'] = $_REQUEST['view_name'];
+  $user['view_name'] = sanitize($_REQUEST['view_name']);
   
   // I am not quite sure at this point whether I should cache view info so
   // for now I will have to do this
