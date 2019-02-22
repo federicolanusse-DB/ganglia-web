@@ -130,7 +130,7 @@
           {if $graph_actions['metric_actions']}
             <button class="cupid-green"
                     title="Metric Actions - Add to View, etc"
-                    onclick="{if $is_aggregate} metricActionsAggregateGraph('{$query_string}') {else} metricActions('{htmlspecialchars($h,ENT_QUOTES)}', {if isset($g)} '{htmlspecialchars($g,ENT_QUOTES)}', 'graph' {else} '{$m}', 'metric' {/if}, '{$query_string}'){/if}; return false;">+</button>
+                    onclick="{if $is_aggregate} metricActionsAggregateGraph('{$query_string}') {else} metricActions('{htmlspecialchars($h,ENT_QUOTES)}', {if isset($g)} '{htmlspecialchars($g,ENT_QUOTES)}', 'graph' {else} '{htmlspecialchars($m,ENT_QUOTES)}', 'metric' {/if}, '{$query_string}'){/if}; return false;">+</button>
           {/if}
 
           <button title="Export to CSV"
