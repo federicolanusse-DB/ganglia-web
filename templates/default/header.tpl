@@ -12,6 +12,8 @@
      var g_refresh_timer = setTimeout("refresh()", g_refreshInterval * 1000);
      var tz = jstz.determine();
 
+     tz = encodeURI(tz);
+
      function refreshHeader() {
        $.get('header.php?date_only=1', function(datetime) {
          var pageTitle = $("#page_title");
