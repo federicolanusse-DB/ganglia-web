@@ -28,6 +28,16 @@ if($conf['case_sensitive_hostnames'] == 1) {
         strtolower( sanitize($_GET["h"]) ) : NULL;
 }
 
+// Verify we are using a valid hostname
+// see https://stackoverflow.com/questions/106179/regular-expression-to-match-dns-hostname-or-ip-address
+
+$ValidIpAddressRegex = "/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/";
+$ValidHostnameRegex = "/^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/";
+
+$user['hostname'] = ( preg_match($ValidIpAddressRegex, $user['hostname']) || preg_match($ValidHostnameRegex, $user['hostname'])) ? 
+    $user['hostname'] : NULL;
+
+
 $user['range'] = isset( $_GET["r"] ) && in_array($_GET["r"], array_keys( $conf['time_ranges'] ) ) ?
     escapeshellcmd( rawurldecode($_GET["r"])) : NULL;
 $user['metricname'] = isset($_GET["m"]) ?
