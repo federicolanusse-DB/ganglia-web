@@ -50,7 +50,7 @@ function addMetricGroup(mgName) {
       }
     break;
     default:
-      alert("Unrecognized group option - " + groups[0]);
+      alert("Unrecognized group option");
   }
   stored_groups.val(open_groups);
 }
@@ -87,7 +87,7 @@ function removeMetricGroup(mgName) {
       open_groups = groups.join(SEPARATOR);
     break;
     default:
-      alert("Unrecognized group option - " + groups[0]);
+      alert("Unrecognized group option");
   }
   stored_groups.val(open_groups);
 }
